@@ -2,9 +2,8 @@
 **Turn a seminar-day schedule into a researched one-page briefing — in about the time it takes to brew a coffee.**
 
 <p align="center">
-  <img src="examples/example-output.png" alt="Example output: one-page enriched seminar briefing" width="900"/>
+	<img src="examples/example-output.png" alt="Example output: one-page enriched seminar briefing" width="900"/>
 </p>
-
 
 A Claude skill that takes a schedule of one-on-one meetings (PDF, pasted table, or spreadsheet) and produces a polished single-page landscape PDF. Each row shows who you'll meet: PhD and career timeline, research interests, frequent co-authors, editorial roles, and what they're currently working on. Designed for the night before a seminar visit, when you have a dozen 30-minute slots ahead of you and no time to skim a dozen CVs.
 
@@ -12,9 +11,9 @@ A Claude skill that takes a schedule of one-on-one meetings (PDF, pasted table, 
 
 ## Example
 
-The image above is a illustrative example. The first row is a real enrichment; the remaining rows use placeholder content so this repo doesn't publish on PII of real people without consent.
+The image above is a illustrative example. Here is how the output is built: each attendee's homepage, CV, publications, and editorial pages are pulled live; bios are compressed into a brief timeline; current working papers are surfaced in plain language in the `Comment` column; the whole thing is rendered as one landscape A4 page with themed rows for seminar, dinner, and PhD meeting slots. 
 
-How the output is built: each attendee's homepage, CV, publications, and editorial pages are pulled live; bios are compressed into a brief timeline; current working papers are surfaced in plain language in the `Comment` column; the whole thing is rendered as one landscape A4 page with themed rows for seminar, dinner, and PhD meeting slots.
+(The first row is a real enrichment; the remaining rows use placeholder content so this repo doesn't publish on PII of real people without consent.)
 
 ---
 
@@ -56,7 +55,7 @@ Both feed the `Comment` column, which is the single most useful part of the outp
 ## Limitations
 
 - **Live research takes time.** A dozen attendees ≈ a few minutes of web search and fetch before the PDF is generated.
-- **You may hit tool-use limits mid-run on Claude.ai.** The web UI caps each turn at roughly 20 tool calls, and researching a dozen attendees easily exceeds that. When the run pauses, just click **Continue** — the skill resumes from where it left off.
+- **You may hit tool-use limits mid-run on Claude.ai.** The web UI caps each turn at roughly 20 tool calls, and researching a dozen attendees sometimes exceeds that. When the run pauses, just click **Continue** — the skill resumes from where it left off.
 - **Web presence required.** Researchers with minimal online footprint (some PhD students, non-US institutions) get flagged with ⚠ rather than guessed.
 - **Finance / economics bias.** Editorial-role lookups target finance and economics journals. Adjacent fields will need the journal list adapted in `SKILL.md`.
 - **Name collisions** are disambiguated via affiliation; if still ambiguous the row is flagged rather than guessed.
@@ -73,8 +72,8 @@ seminar-schedule/
 ├── seminar-schedule/
 │   └── SKILL.md              # skill definition and workflow
 └── examples/
-    ├── example-output.pdf    # generated briefing (clickable links)
-    └── example-output.png    # page 1 rendered as hero image
+		├── example-output.pdf    # generated briefing (clickable links)
+		└── example-output.png    # page 1 rendered as hero image
 ```
 
 ## License
